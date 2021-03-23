@@ -24,10 +24,17 @@ export const UFO = (props) => {
     }, [hasStarted, baseY, intervalCounter])
     
     return (
-        <div style={{marginTop: baseY}}>
+        <div style={{marginTop: baseY, position: "absolute", zIndex: 1, display: 'flex', alignContent: "center", justifyContent: 'center'}}>
             <svg style={{border: '5px solid blue', width: '310px', height: '150px'}}>
-                <circle cx="50%" cy="50%" r="75" fill="green" />
-                <ellipse cx="50%" cy="50%" rx="150" ry="30" stroke="green" fill="green" strokeWidth="5"/>
+                <defs>
+                    <clipPath id="cut-off">
+                        <rect x="80" y="0" width="200" height="50"/>
+                    </clipPath>
+                </defs>
+                <circle cx="50%" cy="50%" r="75" fill="grey" />
+                <circle cx="50%" cy="50%" r="75" stroke="grey" fill="pink" clip-path="url(#cut-off)"/>
+                <ellipse cx="50%" cy="50%" rx="150" ry="30" stroke="grey" fill="grey" strokeWidth="5"/>
+                <ellipse cx="50%" cy="32%" rx="68" ry="15" fill="pink" strokeWidth="5"/>
                 <path className={styles.halfwayLine} d="M 5 75 Q 140 110 306 75" stroke="black" strokeWidth="5" fill="transparent"/>
             </svg>
         </div>
