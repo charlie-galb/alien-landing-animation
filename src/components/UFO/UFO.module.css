@@ -1,0 +1,10 @@
+.halfwayLine {
+    stroke-dasharray: 3;
+    animation: dash 5s infinite linear;
+}
+
+@keyframes dash {
+    to {
+      stroke-dashoffset: 500;
+    }
+  }
