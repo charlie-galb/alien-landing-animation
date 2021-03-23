@@ -7,9 +7,9 @@ export const UFO = (props) => {
     const [hasStarted, setHasStarted] = useState(true)
 
     useEffect(() => {
-        let moveXInterval
+        let moveYInterval
         if (hasStarted) {
-            moveXInterval = setInterval(() => {
+            moveYInterval = setInterval(() => {
                 setBaseY(baseY => baseY + 1)
                 setIntervalCounter(intervalCounter => intervalCounter + 1)
                 if (intervalCounter > 500) {
@@ -18,14 +18,14 @@ export const UFO = (props) => {
                   }
             }, 15)
         } else {
-            clearInterval(moveXInterval)
+            clearInterval(moveYInterval)
         }
-        return () => clearInterval(moveXInterval)
+        return () => clearInterval(moveYInterval)
     }, [hasStarted, baseY, intervalCounter])
     
     return (
-        <div style={{marginTop: baseY, position: "absolute", zIndex: 1, display: 'flex', alignContent: "center", justifyContent: 'center'}}>
-            <svg style={{border: '5px solid blue', width: '310px', height: '150px'}}>
+        <div style={{marginTop: baseY, position: "absolute", zIndex: "1", display: 'flex', alignContent: "center", justifyContent: 'center'}}>
+            <svg style={{width: '310px', height: '150px'}}>
                 <defs>
                     <clipPath id="cut-off">
                         <rect x="80" y="0" width="200" height="50"/>
