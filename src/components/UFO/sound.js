@@ -13,5 +13,4 @@ export const Sound = () => {
       return (
           <div></div>
       )
-
 }
