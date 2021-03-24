@@ -10,6 +10,8 @@ export const Sound = () => {
     useEffect(() => {
         play();
       }, [play]);
-      return null;
+      return (
+          <div></div>
+      )
 
 }
