@@ -1,5 +1,7 @@
 import React , {useEffect, useState} from 'react'
+
 import styles from './UFO.module.css'
+import {Sound} from './sound'
 
 export const UFO = (props) => {
     const [baseY, setBaseY] = useState(-250)
@@ -10,12 +12,12 @@ export const UFO = (props) => {
         let moveYInterval
         if (hasStarted) {
             moveYInterval = setInterval(() => {
-                setBaseY(baseY => baseY + 1)
-                setIntervalCounter(intervalCounter => intervalCounter + 1)
-                if (intervalCounter > 500) {
-                    setIntervalCounter(0);
-                    setHasStarted(false);
-                  }
+            setBaseY(baseY => baseY + 1)
+            setIntervalCounter(intervalCounter => intervalCounter + 1)
+            if (intervalCounter > 500) {
+                setIntervalCounter(0);
+                setHasStarted(false);
+                }
             }, 15)
         } else {
             clearInterval(moveYInterval)
@@ -35,6 +37,7 @@ export const UFO = (props) => {
             <ellipse cx="50%" cy="50%" rx="150" ry="30" stroke="grey" fill="grey" strokeWidth="5"/>
             <ellipse cx="50%" cy="32%" rx="68" ry="15" fill="pink" strokeWidth="5"/>
             <path className={styles.halfwayLine} d="M 5 75 Q 140 110 306 75" stroke="black" strokeWidth="5" fill="transparent"/>
+            <Sound ></Sound>
         </svg>
     )
 }
