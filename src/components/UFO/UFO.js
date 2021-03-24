@@ -24,7 +24,7 @@ export const UFO = (props) => {
     }, [hasStarted, baseY, intervalCounter])
     
     return (
-        <svg x="0" y={baseY}>
+        <svg x="30%" y={baseY} width= '310px' height='150px'>
             <defs>
                 <clipPath id="cut-off">
                     <rect x="80" y="0" width="200" height="50"/>
