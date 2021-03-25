@@ -1,53 +1,39 @@
-import React from 'react'
-import styles from "./background.module.css"
+import React, {useState, useEffect} from 'react'
+
+import { Stars } from '../stars/stars'
 
 export const Background = () => {
+
+    const [shadRadY, setShadRadY] = useState(70)
+    const [shadRadX, setShadRadX] = useState(300)
+    const [intervalCounter, setIntervalCounter] = useState(500)
+    const [hasStarted, setHasStarted] = useState(true)
+
+    useEffect(() => {
+        let changeShadInterval
+        if (hasStarted) {
+            changeShadInterval = setInterval(() => {
+            setShadRadY(shadRadY => shadRadY - 0.1)
+            setShadRadX(shadRadX => shadRadX - 0.3)
+            setIntervalCounter(intervalCounter => intervalCounter - 1)
+            console.log(intervalCounter)
+            if (intervalCounter < 1) {
+                setIntervalCounter(0);
+                setHasStarted(false);
+                }
+            }, 15)
+        } else {
+            clearInterval(changeShadInterval)
+        }
+        return () => clearInterval(changeShadInterval)
+    }, [hasStarted, shadRadY, shadRadX, intervalCounter])
+
     return (
         <g>
             <rect id="sky" width="900px" height="350px" fill="rgb(10 10 44"/>
-            <rect id="ground" x="0px" y="350px" width="900px" height="150px" fill="rgb(87 59 12)"/>
-            <circle className={styles.star1} cx="1%" cy="3%" r="1" fill="red" />
-            <circle className={styles.star2} cx="10%" cy="4%" r="1" fill="yellow" />
-            <circle className={styles.star3} cx="89%" cy="23%" r="1" fill="green" />
-            <circle className={styles.star4} cx="80%" cy="11%" r="1" fill="pink" />
-            <circle className={styles.star5} cx="40%" cy="56%" r="1" fill="yellow" />
-            <circle className={styles.star1} cx="37%" cy="25%" r="1" fill="white" />
-            <circle className={styles.star2} cx="32%" cy="62%" r="1" fill="pink" />
-            <circle className={styles.star3} cx="43%" cy="35%" r="1" fill="red" />
-            <circle className={styles.star4} cx="7%" cy="46%" r="1" fill="yellow" />
-            <circle className={styles.star5} cx="9%" cy="67%" r="1" fill="green" />
-            <circle className={styles.star1} cx="23%" cy="11%" r="1" fill="pink" />
-            <circle className={styles.star2} cx="70%" cy="29%" r="1" fill="yellow" />
-            <circle className={styles.star3} cx="19%" cy="55%" r="1" fill="white" />
-            <circle className={styles.star4} cx="22%" cy="62%" r="1" fill="pink" />
-            <circle className={styles.star5} cx="83%" cy="65%" r="1" fill="red" />
-            <circle className={styles.star1} cx="77%" cy="46%" r="1" fill="yellow" />
-            <circle className={styles.star2} cx="67%" cy="67%" r="1" fill="green" />
-            <circle className={styles.star3} cx="53%" cy="21%" r="1" fill="pink" />
-            <circle className={styles.star4} cx="69%" cy="40%" r="1" fill="yellow" />
-            <circle className={styles.star5} cx="15%" cy="35%" r="1" fill="white" />
-            <circle className={styles.star1} cx="22%" cy="20%" r="1" fill="pink" />
-            <circle className={styles.star2} cx="30%" cy="4%" r="1" fill="green" />
-            <circle className={styles.star3} cx="37%" cy="7%" r="1" fill="pink" />
-            <circle className={styles.star4} cx="43%" cy="2%" r="1" fill="yellow" />
-            <circle className={styles.star5} cx="65%" cy="9%" r="1" fill="white" />
-            <circle className={styles.star1} cx="87%" cy="6%" r="1" fill="pink" />
-            <circle className={styles.star2} cx="90%" cy="43%" r="1" fill="yellow" />
-            <circle className={styles.star3} cx="93%" cy="62%" r="1" fill="green" />
-            <circle className={styles.star4} cx="84%" cy="26%" r="1" fill="pink" />
-            <circle className={styles.star5} cx="50%" cy="50%" r="1" fill="yellow" />
-            <circle className={styles.star1} cx="42%" cy="58%" r="1" fill="white" />
-            <circle className={styles.star2} cx="37%" cy="64%" r="1" fill="pink" />
-            <circle className={styles.star3} cx="8%" cy="12%" r="1" fill="green" />
-            <circle className={styles.star4} cx="14%" cy="23%" r="1" fill="pink" />
-            <circle className={styles.star5} cx="30%" cy="43%" r="1" fill="yellow" />
-            <circle className={styles.star1} cx="37%" cy="50%" r="1" fill="white" />
-            <circle className={styles.star2} cx="3%" cy="42%" r="1" fill="pink" />
-            <circle className={styles.star3} cx="60%" cy="40%" r="1" fill="pink" />
-            <circle className={styles.star4} cx="64%" cy="39%" r="1" fill="yellow" />
-            <circle className={styles.star5} cx="59%" cy="55%" r="1" fill="white" />
-            <circle className={styles.star1} cx="48%" cy="22%" r="1" fill="pink" />
-            <circle className={styles.star2} cx="73%" cy="35%" r="1" fill="red" />
+            <Stars />
+            <ellipse id="ground" cx="60%" cy="100%" rx="900" ry="130" fill="rgb(93, 148, 81)" />
+            <ellipse id="shadow" cx="50%" cy="88%" rx={shadRadX} ry={shadRadY} fill="black" opacity="0.8"/>
         </g>
     )
 }
