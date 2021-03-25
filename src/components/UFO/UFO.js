@@ -32,7 +32,7 @@ export const UFO = (props) => {
                     <rect x="80" y="0" width="200" height="50"/>
                 </clipPath>
             </defs>
-            <circle cx="50%" cy="50%" r="75" fill="grey" />
+            <circle cx="50%" cy="50%" r="75" fill="rgb(113, 115, 112)" />
             <circle cx="50%" cy="50%" r="75" stroke="grey" fill="pink" clipPath="url(#cut-off)"/>
             <ellipse cx="50%" cy="50%" rx="150" ry="30" stroke="grey" fill="grey" strokeWidth="5"/>
             <ellipse cx="50%" cy="32%" rx="68" ry="15" fill="pink" strokeWidth="5"/>
