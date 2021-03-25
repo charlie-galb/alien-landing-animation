@@ -14,7 +14,7 @@ function App() {
   const renderPlayButton = () => {
     if (isNotYetPlayed) {
       return (
-      <button style={{marginTop: "35%", marginLeft: "Auto", marginRight: "auto", width: "100px", height: "60px", fontSize: "20px"}} onClick={handleClick}>Play</button>
+      <button style={{marginTop: "20%", marginLeft: "Auto", marginRight: "auto", width: "100px", height: "60px", fontSize: "20px"}} onClick={handleClick}>Play</button>
       )
     }
   }
@@ -22,9 +22,7 @@ function App() {
   const renderAnimation = () => {
     if (isPlaying) {
       return (
-        <div>
           <Canvas></Canvas>
-        </div>
       )
     }
   }
