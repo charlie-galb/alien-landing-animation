@@ -36,7 +36,7 @@ export const UFO = (props) => {
             <circle cx="50%" cy="50%" r="75" stroke="grey" fill="pink" clipPath="url(#cut-off)"/>
             <ellipse cx="50%" cy="50%" rx="150" ry="30" stroke="grey" fill="grey" strokeWidth="5"/>
             <ellipse cx="50%" cy="32%" rx="68" ry="15" fill="pink" strokeWidth="5"/>
-            <path className={styles.halfwayLine} d="M 5 75 Q 140 110 306 75" stroke="black" strokeWidth="5" fill="transparent"/>
+            <path className={styles.halfwayLine} d="M 6 78 Q 150 120 303 80" stroke="black" strokeWidth="5" fill="transparent"/>
             <Sound ></Sound>
         </svg>
     )
