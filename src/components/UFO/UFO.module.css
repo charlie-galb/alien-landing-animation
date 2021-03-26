@@ -1,6 +1,6 @@
 .halfwayLine {
     stroke-dasharray: 3;
-    animation: dash 5s infinite linear;
+    animation: dash 10s infinite linear;
 }
 
 @keyframes dash {
