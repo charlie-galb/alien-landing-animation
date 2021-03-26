@@ -47,6 +47,9 @@ export const Stars = () => {
             <circle className={styles.star5} cx="59%" cy="55%" r="1" fill="white" />
             <circle className={styles.star1} cx="48%" cy="22%" r="1" fill="pink" />
             <circle className={styles.star2} cx="73%" cy="35%" r="1" fill="red" />
+            <circle className={styles.star3} cx="4%" cy="55%" r="1" fill="white" />
+            <circle className={styles.star4} cx="8%" cy="56%" r="1" fill="pink" />
+            <circle className={styles.star5} cx="73%" cy="35%" r="1" fill="red" />
         </g>
     )
 }
