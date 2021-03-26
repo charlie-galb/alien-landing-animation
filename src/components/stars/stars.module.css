@@ -1,21 +1,21 @@
 .star1{
-    animation: twinkle 6s linear infinite;
+    animation: twinkle 4s linear infinite;
 }
 
 .star2{
-    animation: twinkle 8s linear infinite;
+    animation: twinkle 6s linear infinite;
 }
 
 .star3{
-    animation: twinkle 10s linear infinite;
+    animation: twinkle 8s linear infinite;
 }
 
 .star4{
-    animation: twinkle 12s linear infinite;
+    animation: twinkle 10s linear infinite;
 }
 
 .star5{
-    animation: twinkle 14s linear infinite;
+    animation: twinkle 12s linear infinite;
 }
 
 @keyframes twinkle {
