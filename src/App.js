@@ -1,8 +1,6 @@
 import React , {useState} from 'react'
 
 import { Canvas } from './components/canvas/canvas';
-import {Sound} from './components/sound/sound'
-import styles from './App.module.css'
 
 function App() {
   const [isNotYetPlayed, setIsNotYetPlayed] = useState(true)
@@ -16,8 +14,8 @@ function App() {
   const renderPlayButton = () => {
     if (isNotYetPlayed) {
       return (
-        <div className={styles.playButtonContainer} >
-          <button className={styles.playButton} onClick={handleClick}>Play</button>
+        <div style={{display: 'flex', flexDirection: "column", alignContent: "center", justifyContent: 'center'}}>
+          <button style={{color: "red", backgroundColor: "#e6e8e8", border: '5px solid red', marginTop: "20%", marginLeft: "auto", marginRight: "auto", width: "120px", height: "80px", fontSize: "40px", borderRadius: "20px"}} onClick={handleClick}>Play</button>
         </div>
       )
     }
@@ -31,18 +29,11 @@ function App() {
     }
   }
 
-  const renderSound = () => {
-    return (
-      <Sound></Sound>
-    )
-  }
-
 
   return (
     <div>
       {renderAnimation()}
       {renderPlayButton()}
-      {renderSound()}
     </div>
 );
 }
